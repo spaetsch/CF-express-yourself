@@ -2,8 +2,10 @@
 <html data-ng-app="donutApp">
   <head>
     <title>Donut Menu</title>
-    <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet"  href="http://fonts.googleapis.com/css?family=Quicksand">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="CSS/style.css">
+
   </head>
   <body>
     <main data-ng-controller="appController">
@@ -21,8 +23,8 @@
 
         <h1>Donut Menu Management</h1>
 
-        <ul>
-          <li data-ng-repeat="donut in donuts">
+        <ul class="donut-menu">
+          <li class="donut-card" data-ng-repeat="donut in donuts">
             <h3>{{donut.day}}</h3>
             <ul>
               <li>
@@ -32,22 +34,19 @@
                 Description: {{donut.description}}
               </li>
               <li>
+                <section class="update-form" data-ng-if="donut.editing" data-ng-submit="submitForm(donut)">
 
-              <section class="update-form" data-ng-if="donut.editing" data-ng-submit="submitForm(donut)">
-
-                <h3>Edit Donut</h3>
-                <form id="update_donut">
-                  <input type="text" name="updatename" placeholder="Day" data-ng-model="donut.day"/>
-                  <input type="text" name="updateflavor" placeholder="Flavor" data-ng-model="donut.flavor"/>
-                  <input type="text" name="updatedescription" placeholder="Description" data-ng-model="donut.description"/>
-                  <button data-ng-click="edit(donut)">Save</button>
-                  <button data-ng-click="donut.editing=false">Cancel</button>
-
-                </form>
-              </section>
+                  <h3>Edit Donut</h3>
+                  <form id="update_donut">
+                    <input type="text" name="updatename" placeholder="Day" data-ng-model="donut.day"/>
+                    <input type="text" name="updateflavor" placeholder="Flavor" data-ng-model="donut.flavor"/>
+                    <input type="text" name="updatedescription" placeholder="Description" data-ng-model="donut.description"/>
+                    <button data-ng-click="edit(donut)">Save</button>
+                    <button data-ng-click="donut.editing=false">Cancel</button>
+                  </form>
+                </section>
 
                 <button data-ng-if="!donut.editing" data-ng-click="donut.editing=true">Edit</button>
-
                 <button data-ng-if="!donut.editing" data-ng-click="destroy(donut._id)">Delete</button>
               </li>
             </ul>
@@ -60,12 +59,9 @@
             <input type="text" name="name" placeholder="Day" data-ng-model="newdonut.day"/>
             <input type="text" name="flavor" placeholder="Flavor" data-ng-model="newdonut.flavor"/>
             <input type="text" name="description" placeholder="Description" data-ng-model="newdonut.description"/>
-
             <input type="Submit"/>
           </form>
         </section>
-
-
 
       </div>
     </main>
