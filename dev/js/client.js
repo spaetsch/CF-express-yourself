@@ -17,4 +17,5 @@ console.log("after services require");
 require('./donuts/donuts')(donutApp);
 
 // directives
+require('./directive/primeDirective.js')(donutApp);
 
