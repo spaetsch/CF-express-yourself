@@ -7,8 +7,6 @@ body {
   margin: 0; }
 
 header {
-  width: 40em;
-  margin: 0 auto 1em auto;
   font-family: 'Quicksand';
   color: white;
   background-color: #3E606F;
@@ -23,8 +21,28 @@ p {
 h1, h2, h3 {
   font-family: 'Quicksand'; }
 
+nav {
+  margin-top: .25em;
+  padding: .5em;
+  background-color: #193441;
+  color: white;
+  font-family: sans-serif; }
+
+nav p a {
+  color: white;
+  margin: 1em;
+  text-decoration: none; }
+
+nav p a:hover {
+  color: #3E606F;
+  /*blue gray*/ }
+
+main {
+  padding: 1em; }
+
 .donut-card, .donut-form {
-  background-color: gray;
+  color: white;
+  background-color: #3E606F;
   padding: 1em;
   margin: .5em; }
 
@@ -37,35 +55,5 @@ ul.donut-menu {
 .donut-card li,
 .donut-menu li {
   list-style-type: none; }
-
-.container {
-  width: 60em;
-  margin: 1em auto;
-  overflow: hidden; }
-
-.navbar {
-  width: 60em;
-  margin: 1em auto;
-  padding: .5em;
-  background-color: #193441;
-  color: white;
-  font-family: sans-serif; }
-
-.navbar p a {
-  color: white;
-  margin: 1em;
-  text-decoration: none; }
-
-.navbar p a:hover {
-  color: #3E606F;
-  /*blue gray*/ }
-
-footer {
-  width: 60em;
-  margin: 3em auto;
-  border-top: 1px dotted #ccc;
-  padding-top: .25em;
-  font-size: .7em;
-  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

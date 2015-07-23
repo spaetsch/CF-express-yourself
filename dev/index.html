@@ -8,24 +8,19 @@
 
   </head>
   <body>
+    <header>
+      <h1>Buckeye Donuts</h1>
+    </header>
+    <nav>
+      <p>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Nutrition</a>
+      </p>
+    </nav>
+
     <main data-ng-controller="appController">
-
-      <div data-prime-directive></div>
-
-      <header>
-        <h1>Buckeye Donuts</h1>
-      </header>
-      <nav class="navbar">
-        <p>
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Nutrition</a>
-        </p>
-      </nav>
-      <div class="container">
-
         <h1>Donut Menu Management</h1>
-
         <ul class="donut-menu">
           <li class="donut-card" data-ng-repeat="donut in donuts">
             <h3>{{donut.day}}</h3>
@@ -65,7 +60,7 @@
             <input type="Submit"/>
           </form>
         </section>
-
+        <p>Doodley doodle:</p><div data-prime-directive></div>
       </div>
     </main>
     <script src="bundle.js"></script>
