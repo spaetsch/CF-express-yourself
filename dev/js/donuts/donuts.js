@@ -34,7 +34,7 @@ module.exports = function(app) {
       });
     };
 
-    $scope.edit = function(donut, id) {
+    $scope.edit = function(donut) {
       donut.editing = false;
       console.log("i am editing this:", donut);
       console.log("donut._id", donut._id);
@@ -42,7 +42,7 @@ module.exports = function(app) {
       //   getAll();
       // });
 
-      Donut.edit(donut, donut._id, function(response){
+      Donut.edit(donut, function(response){
         console.log("inside donut.put");
         getAll();
       });

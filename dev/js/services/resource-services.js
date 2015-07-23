@@ -39,11 +39,11 @@ module.exports = function(app){
           .error(errorhandler);
         },
         //PUT
-        edit: function(resource, id, callback){
+        edit: function(resource, callback){
           $http({
             method: 'PUT',
-            url: '/' + resourceName + '/' + id,
-            data: id
+            url: '/' + resourceName + '/' + resource._id,
+            data: resource
           })
           .success(callback)
           .error(errorhandler);
