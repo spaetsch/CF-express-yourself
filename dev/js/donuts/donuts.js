@@ -32,17 +32,22 @@ module.exports = function(app) {
       Donut.destroy(id, function(response) {
         getAll();
       });
-    }
+    };
 
-    // $scope.edit = function(donut) {
-    //   donut.editing = false;
-    //   console.log(donut);
+    $scope.edit = function(donut, id) {
+      donut.editing = false;
+      console.log("i am editing this:", donut);
+      console.log("donut._id", donut._id);
+      // $http.put('/donuts/' + donut._id, donut).success(function(response){
+      //   getAll();
+      // });
 
-    //   // $http.put('/donuts/' + donut._id, donut).success(function(response){
-    //   //   getAll();
-    //   // });
+      Donut.edit(donut, donut._id, function(response){
+        console.log("inside donut.put");
+        getAll();
+      });
 
-    //};
+    };
 
   }])};
 

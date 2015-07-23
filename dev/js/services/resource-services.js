@@ -37,7 +37,18 @@ module.exports = function(app){
           })
           .success(callback)
           .error(errorhandler);
+        },
+        //PUT
+        edit: function(resource, id, callback){
+          $http({
+            method: 'PUT',
+            url: '/' + resourceName + '/' + id,
+            data: id
+          })
+          .success(callback)
+          .error(errorhandler);
         }
+
       }
 
     }
