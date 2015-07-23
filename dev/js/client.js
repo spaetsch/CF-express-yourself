@@ -8,7 +8,14 @@ console.log("after ang require");
 
 var donutApp = angular.module('donutApp', []);
 
-console.log("donutApp", donutApp);
+// services
+require('./services/resource-services')(donutApp);
 
+console.log("after services require");
 
-require('./donutcontroller/controller.js')(donutApp);
+// controllers
+require('./donuts/donuts')(donutApp);
+
+// directives
+require('./directive/primeDirective.js')(donutApp);
+
