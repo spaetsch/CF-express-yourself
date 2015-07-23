@@ -1,85 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="donutApp">
   <head>
-    <title> Donut Menu</title>
+    <title>Donut Menu</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet"  href="http://fonts.googleapis.com/css?family=Quicksand">
   </head>
   <body>
-    <main>
+    <main data-ng-controller="appController">
       <header>
         <h1>Buckeye Donuts</h1>
       </header>
       <nav class="navbar">
-        <p><a href="/">Home</a><a href="about">About</a></p>
+        <p>
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Nutrition</a>
+        </p>
       </nav>
       <div class="container">
-      <h1>Donut Menu Management</h1>
 
-      <section class="donut-form">
-        <h3>Current daily donut specials</h3>
-        <form id="daily_donut">
-          <select id="get-select_day">
-            <option name="Monday" val="Monday">Monday</option>
-            <option name="Tuesday" val="Tuesday">Tuesday</option>
-            <option name="Wednesday" val="Wednesday">Wednesday</option>
-            <option name="Thursday" val="Thursday">Thursday</option>
-            <option name="Friday" val="Friday">Friday</option>
-            <option name="Saturday" val="Saturday">Saturday</option>
-            <option name="Sunday" val="Sunday">Sunday</option>
-          </select>
-          <input type="Submit"/>
-        </form>
-      </section>
+        <h1>Donut Menu Management</h1>
 
-      <section class="donut-form">
-        <h3>Add a new holiday donut special</h3>
-        <form id="new_donut">
-          <input type="text" name="name" placeholder="Holiday"/>
-          <input type="text" name="description" placeholder="flavor"/>
-          <input type="Submit"/>
-        </form>
-      </section>
+        <ul>
+          <li data-ng-repeat="donut in donuts">
+            <h3>{{donut.day}}</h3>
+            <ul>
+              <li>
+                Flavor: {{donut.flavor}}
+              </li>
+              <li>
+                Description: {{donut.description}}
+              </li>
+              <li>
 
-      <section class="donut-form">
-        <h3>Update the Menu</h3>
-        <p>Choose day of the week</p>
-        <form id="update_donut">
-          <select id="update-select_day">
-            <option name="Monday" val="Monday">Monday</option>
-            <option name="Tuesday" val="Tuesday">Tuesday</option>
-            <option name="Wednesday" val="Wednesday">Wednesday</option>
-            <option name="Thursday" val="Thursday">Thursday</option>
-            <option name="Friday" val="Friday">Friday</option>
-            <option name="Saturday" val="Saturday">Saturday</option>
-            <option name="Sunday" val="Sunday">Sunday</option>
-          </select>
-          <p>Enter new flavor</p>
-          <input type="text" name="update_description" placeholder="flavor"/>
-          <input type="Submit"/>
-        </form>
-      </section>
+              <section class="update-form" data-ng-if="donut.editing" data-ng-submit="submitForm(donut)">
 
-      <section class="donut-form">
-        <h3>Delete a daily special</h3>
-        <p>Choose day of the week to delete</p>
-        <form id="delete_donut">
-          <select id="delete-select_day">
-            <option name="Monday" val="Monday">Monday</option>
-            <option name="Tuesday" val="Tuesday">Tuesday</option>
-            <option name="Wednesday" val="Wednesday">Wednesday</option>
-            <option name="Thursday" val="Thursday">Thursday</option>
-            <option name="Friday" val="Friday">Friday</option>
-            <option name="Saturday" val="Saturday">Saturday</option>
-            <option name="Sunday" val="Sunday">Sunday</option>
-          </select>
-          <input type="Submit"/>
-        </form>
-      </section>
+                <h3>Edit Donut</h3>
+                <form id="update_donut">
+                  <input type="text" name="updatename" placeholder="Day" data-ng-model="donut.day"/>
+                  <input type="text" name="updateflavor" placeholder="Flavor" data-ng-model="donut.flavor"/>
+                  <input type="text" name="updatedescription" placeholder="Description" data-ng-model="donut.description"/>
+                  <button data-ng-click="edit(donut)">Save</button>
+                  <button data-ng-click="donut.editing=false">Cancel</button>
 
-      <div class="spotlight">
-        <h1>Only the best ingredients</h1>
-        <p>Chrome artisanal stimulate boy smart-dome skyscraper marketing pistol sensory urban dissident dolphin cardboard digital.</p>
-        <p>Media nodal point ablative hacker Tokyo motion concrete RAF papier-mache Chiba. Shibuya tiger-team pistol girl narrative-space computer smart.</p>
+                </form>
+              </section>
+
+                <button data-ng-if="!donut.editing" data-ng-click="donut.editing=true">Edit</button>
+
+                <button data-ng-if="!donut.editing" data-ng-click="destroy(donut._id)">Delete</button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <section class="donut-form" data-ng-submit="submitForm(newdonut)">
+          <h3>Add a new donut special</h3>
+          <form id="new_donut">
+            <input type="text" name="name" placeholder="Day" data-ng-model="newdonut.day"/>
+            <input type="text" name="flavor" placeholder="Flavor" data-ng-model="newdonut.flavor"/>
+            <input type="text" name="description" placeholder="Description" data-ng-model="newdonut.description"/>
+
+            <input type="Submit"/>
+          </form>
+        </section>
+
+
+
       </div>
-    </div>
+    </main>
+    <script src="bundle.js"></script>
+  </body>
+</html>
