@@ -61,8 +61,7 @@ header {
   font-family: 'Quicksand';
   color: white;
   background-color: #3E606F; /*blue gray*/
-  padding: 2em .5em;
-  /*font-size: 1.5em;*/
+  padding: 2em 0.5em;
   text-align: center;
 }
 h1, h2, h3 {
@@ -82,18 +81,18 @@ h3 {
 }
 
 nav {
-  margin-top: .25em;
-  padding: .5em;
+  margin-top: 0.25em;
+  padding: 0.5em;
   background-color: #193441;
   color: white;
   font-family: sans-serif;
 }
-nav p a {
+nav a {
   color: white;
   margin: 1em;
   text-decoration: none;
 }
-nav p a:hover {
+nav a:hover {
   color:#3E606F; /*blue gray*/;
 }
 main {
@@ -103,41 +102,45 @@ p {
   line-height: 1.25em;
 }
 
-.donut-card, .donut-form {
-  color: white;
-  background-color: #3E606F;
-  padding: 1em;
-  margin: .5em;
-}
-.donut-card {
-  width: 25%;
-}
-.donut-form {
-  width: 50%;
-}
-.donut-card button {
-  margin-top: 1em;
-}
-
 .flex-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.update-donut input,
-.new-donut input {
+.donut-menu {
+  width: 70%;
+  float: left;
+}
+.donut-card {
+  width: 25%;
+  color: white;
+  background-color: #3E606F;
+  padding: 1em;
+  margin: 0.5em;
+}
+.donut-card button {
+  margin-top: 1em;
+}
+.edit-form {
+  margin-top: 1.5em;
+}
+
+.new-donut {
+  width: 25%;
+  background-color: gray;
+  padding: 1em;
+  margin: 0.5em;
+  float: left;
+}
+
+.edit-donut-form input,
+.new-donut-form input {
   display: block;
   margin-top: 1em;
   line-height: 1.25em;
 }
-
-.update-form {
-  margin-top: 1.5em;
-}
-
 .description-entry {
   width: 100%;
   height: 5em;
-
 }
