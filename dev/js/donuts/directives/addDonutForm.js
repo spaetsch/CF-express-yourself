@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports =  function(app){
-  app.directive('newDirective', function(){
+  app.directive('addDonutForm', function(){
   return {
       restrict: 'AC',
-      templateUrl : '/template/donuts/directives/newDirective.html'
+      templateUrl : '/template/donuts/directives/addDonutForm.html'
       //replace: true
     }
   })

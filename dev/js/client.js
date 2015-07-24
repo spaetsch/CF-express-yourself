@@ -19,7 +19,7 @@ require('./donuts/controllers/donut-controller')(donutApp);
 
 // directives
 require('./donuts/directives/primeDirective.js')(donutApp);
-require('./donuts/directives/newDirective.js')(donutApp);
+require('./donuts/directives/addDonutForm.js')(donutApp);
 
 
 // donutApp.config([$routeProvider], function($routeProvider){
