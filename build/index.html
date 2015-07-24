@@ -2,8 +2,8 @@
 <html data-ng-app="donutApp">
   <head>
     <title>Donut Menu</title>
-    <link rel="stylesheet"  href="http://fonts.googleapis.com/css?family=Quicksand">
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet"  href="http://fonts.googleapis.com/css?family=Quicksand:400,700">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="CSS/style.css">
 
   </head>
@@ -15,53 +15,39 @@
       <p>
         <a href="#">Home</a>
         <a href="#">About</a>
-        <a href="#">Nutrition</a>
       </p>
     </nav>
-
     <main data-ng-controller="appController">
-        <h1>Donut Menu Management</h1>
-        <ul class="donut-menu">
-          <li class="donut-card" data-ng-repeat="donut in donuts">
-            <h3>{{donut.day}}</h3>
-            <ul>
-              <li>
-                Flavor: {{donut.flavor}}
-              </li>
-              <li>
-                Description: {{donut.description}}
-              </li>
-              <li>
-                <section class="update-form" data-ng-if="donut.editing" data-ng-submit="submitForm(donut)">
+      <h1>Donut Menu Management</h1>
+      <ul class="donut-menu flex-row">
+        <li class="donut-card" data-ng-repeat="donut in donuts">
+          <h2>{{donut.day}}</h2>
+            <p>
+              <h3>Flavor:</h3> {{donut.flavor}}
+            </p>
+            <p>
+              <h3>Description:</h3> {{donut.description}}
+            </p>
+            <section class="update-form" data-ng-if="donut.editing" data-ng-submit="submitForm(donut)">
 
-                  <h3>Edit Donut</h3>
-                  <form id="update_donut">
-                    <input type="text" name="updatename" placeholder="Day" data-ng-model="donut.day"/>
-                    <input type="text" name="updateflavor" placeholder="Flavor" data-ng-model="donut.flavor"/>
-                    <input type="text" name="updatedescription" placeholder="Description" data-ng-model="donut.description"/>
-                    <button data-ng-click="edit(donut)">Save</button>
-                    <button data-ng-click="donut.editing=false">Cancel</button>
-                  </form>
-                </section>
+              <h3>Edit Donut</h3>
+              <form class="update-donut">
+                <input type="text" name="updatename" placeholder="Day" data-ng-model="donut.day"/>
+                <input type="text" name="updateflavor" placeholder="Flavor" data-ng-model="donut.flavor"/>
+                <input type="text" class="description-entry" name="updatedescription" placeholder="Description" data-ng-model="donut.description"/>
+                <button data-ng-click="edit(donut)">Save</button>
+                <button data-ng-click="donut.editing=false">Close</button>
+              </form>
+            </section>
+            <button data-ng-if="!donut.editing" data-ng-click="donut.editing=true">Edit</button>
+            <button data-ng-if="!donut.editing" data-ng-click="destroy(donut._id)">Delete</button>
+        </li>
+      </ul>
+      <div data-new-directive>
+      <!-- FROM WAS HERE -->
 
-                <button data-ng-if="!donut.editing" data-ng-click="donut.editing=true">Edit</button>
-                <button data-ng-if="!donut.editing" data-ng-click="destroy(donut._id)">Delete</button>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-        <section class="donut-form" data-ng-submit="submitForm(newdonut)">
-          <h3>Add a new donut special</h3>
-          <form id="new_donut">
-            <input type="text" name="name" placeholder="Day" data-ng-model="newdonut.day"/>
-            <input type="text" name="flavor" placeholder="Flavor" data-ng-model="newdonut.flavor"/>
-            <input type="text" name="description" placeholder="Description" data-ng-model="newdonut.description"/>
-            <input type="Submit"/>
-          </form>
-        </section>
-        <p>Doodley doodle:</p><div data-prime-directive></div>
       </div>
+      <!--<p>Doodley doodle:</p><div data-prime-directive></div>-->
     </main>
     <script src="bundle.js"></script>
   </body>

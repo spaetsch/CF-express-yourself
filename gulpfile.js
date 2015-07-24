@@ -7,13 +7,13 @@ var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 
 gulp.task('sass', function () {
-  gulp.src('./sass/**/*.scss')
+  gulp.src('./dev/Sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('../dev/css/'));
+    .pipe(gulp.dest('./dev/CSS/'));
 });
 
 gulp.task('sass:watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
+  gulp.watch('./dev/Sass/**/*.scss', ['sass']);
 });
 
 gulp.task('webpackdev', function() {
