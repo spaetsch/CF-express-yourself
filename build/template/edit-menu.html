@@ -1,0 +1,27 @@
+<main data-ng-controller="appController">
+      <h1>Donut Menu Management</h1>
+      <ul class="donut-menu flex-row">
+        <li class="donut-card" data-ng-repeat="donut in donuts">
+          <h2>{{donut.day}}</h2>
+          <p>
+            <h3>Flavor:</h3> {{donut.flavor}}
+          </p>
+          <p>
+            <h3>Description:</h3> {{donut.description}}
+          </p>
+          <section class="edit-donut" data-ng-if="donut.editing" data-ng-submit="submitForm(donut)">
+            <h3>Edit Donut</h3>
+            <form class="edit-form">
+              <input type="text" name="updatename" placeholder="Day" data-ng-model="donut.day"/>
+              <input type="text" name="updateflavor" placeholder="Flavor" data-ng-model="donut.flavor"/>
+              <input type="text" class="description-entry" name="updatedescription" placeholder="Description" data-ng-model="donut.description"/>
+              <button data-ng-click="edit(donut)">Save</button>
+              <button data-ng-click="donut.editing=false">Close</button>
+            </form>
+          </section>
+          <button data-ng-if="!donut.editing" data-ng-click="donut.editing=true">Edit</button>
+          <button data-ng-if="!donut.editing" data-ng-click="destroy(donut._id)">Delete</button>
+        </li>
+      </ul>
+      <div data-add-donut-form></div>
+    </main>

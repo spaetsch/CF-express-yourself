@@ -18,10 +18,23 @@ require('./donuts/directives/primeDirective.js')(donutApp);
 require('./donuts/directives/addDonutForm.js')(donutApp);
 
 
-// donutApp.config([$routeProvider], function($routeProvider){
-//   $routeProvider
-//   .when('/donuts', {
-//     templateUrl: '' ,  //moved main tag into another html file, insert
-//     controller: appController
-//   })
-// });
+donutApp.config(['$routeProvider', function($routeProvider){
+  $routeProvider
+  .when('/', {
+    templateUrl: './templates/donuts/home.html',
+    controller: 'appController'
+  })
+  .when('/show-menu', {
+    templateUrl: './templates/donuts/show-menu.html',
+    controller: 'appController'
+  })
+  .when('/edit-menu', {
+    templateUrl: './templates/donuts/edit-menu.html',
+    controller: 'appController'
+  })
+  .otherwise({
+    redirectTo: '/'
+    });
+}]);
+
+
