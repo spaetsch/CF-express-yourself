@@ -100,6 +100,14 @@ main {
 p {
   line-height: 1.25em; }
 
+footer {
+  background-color: #193441;
+  color: white;
+  font-size: 0.75em;
+  float: left;
+  margin-top: 2.5em;
+  padding: 2em 4em; }
+
 .flex-row {
   display: flex;
   flex-direction: row;
