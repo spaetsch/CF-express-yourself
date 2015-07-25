@@ -4,8 +4,9 @@ console.log("load client.js");
 
 require('angular/angular');
 require('angular-route');
+require('angular-animate');
 
-var donutApp = angular.module('donutApp', ['ngRoute']);
+var donutApp = angular.module('donutApp', ['ngRoute', "ngAnimate"]);
 
 // services
 require('./services/resource-services')(donutApp);
@@ -17,7 +18,7 @@ require('./donuts/controllers/donut-controller')(donutApp);
 require('./donuts/directives/primeDirective.js')(donutApp);
 require('./donuts/directives/addDonutForm.js')(donutApp);
 
-
+// routeProvider
 donutApp.config(['$routeProvider', function($routeProvider){
   $routeProvider
   .when('/', {
@@ -34,7 +35,7 @@ donutApp.config(['$routeProvider', function($routeProvider){
   })
   .otherwise({
     redirectTo: '/'
-    });
+  });
 }]);
 
 
