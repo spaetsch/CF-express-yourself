@@ -3,19 +3,38 @@
 console.log("load client.js");
 
 require('angular/angular');
+require('angular-route');
 
-console.log("after ang require");
-
-var donutApp = angular.module('donutApp', []);
+var donutApp = angular.module('donutApp', ['ngRoute']);
 
 // services
 require('./services/resource-services')(donutApp);
 
-console.log("after services require");
-
 // controllers
-require('./donuts/donuts')(donutApp);
+require('./donuts/controllers/donut-controller')(donutApp);
 
 // directives
-require('./directive/primeDirective.js')(donutApp);
+require('./donuts/directives/primeDirective.js')(donutApp);
+require('./donuts/directives/addDonutForm.js')(donutApp);
+
+
+donutApp.config(['$routeProvider', function($routeProvider){
+  $routeProvider
+  .when('/', {
+    templateUrl: './templates/donuts/home.html',
+    controller: 'appController'
+  })
+  .when('/show-menu', {
+    templateUrl: './templates/donuts/show-menu.html',
+    controller: 'appController'
+  })
+  .when('/edit-menu', {
+    templateUrl: './templates/donuts/edit-menu.html',
+    controller: 'appController'
+  })
+  .otherwise({
+    redirectTo: '/'
+    });
+}]);
+
 

@@ -2,8 +2,8 @@
 <html data-ng-app="donutApp">
   <head>
     <title>Donut Menu</title>
-    <link rel="stylesheet"  href="http://fonts.googleapis.com/css?family=Quicksand">
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet"  href="http://fonts.googleapis.com/css?family=Quicksand:400,700">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="CSS/style.css">
 
   </head>
@@ -13,56 +13,17 @@
     </header>
     <nav>
       <p>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Nutrition</a>
+        <a href="#home">Home</a>
+        <a href="#show-menu">Show Menu</a>
+        <a href="#edit-menu">Edit Menu</a>
       </p>
     </nav>
 
-    <main data-ng-controller="appController">
-        <h1>Donut Menu Management</h1>
-        <ul class="donut-menu">
-          <li class="donut-card" data-ng-repeat="donut in donuts">
-            <h3>{{donut.day}}</h3>
-            <ul>
-              <li>
-                Flavor: {{donut.flavor}}
-              </li>
-              <li>
-                Description: {{donut.description}}
-              </li>
-              <li>
-                <section class="update-form" data-ng-if="donut.editing" data-ng-submit="submitForm(donut)">
+    <main data-ng-view></main>
 
-                  <h3>Edit Donut</h3>
-                  <form id="update_donut">
-                    <input type="text" name="updatename" placeholder="Day" data-ng-model="donut.day"/>
-                    <input type="text" name="updateflavor" placeholder="Flavor" data-ng-model="donut.flavor"/>
-                    <input type="text" name="updatedescription" placeholder="Description" data-ng-model="donut.description"/>
-                    <button data-ng-click="edit(donut)">Save</button>
-                    <button data-ng-click="donut.editing=false">Cancel</button>
-                  </form>
-                </section>
-
-                <button data-ng-if="!donut.editing" data-ng-click="donut.editing=true">Edit</button>
-                <button data-ng-if="!donut.editing" data-ng-click="destroy(donut._id)">Delete</button>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-        <section class="donut-form" data-ng-submit="submitForm(newdonut)">
-          <h3>Add a new donut special</h3>
-          <form id="new_donut">
-            <input type="text" name="name" placeholder="Day" data-ng-model="newdonut.day"/>
-            <input type="text" name="flavor" placeholder="Flavor" data-ng-model="newdonut.flavor"/>
-            <input type="text" name="description" placeholder="Description" data-ng-model="newdonut.description"/>
-            <input type="Submit"/>
-          </form>
-        </section>
-        <p>Doodley doodle:</p><div data-prime-directive></div>
-      </div>
-    </main>
+    <footer>
+      <p>Here's some footer text. woot A.I. Shibuya fluidity dolphin Legba knife garage claymore mine Tokyo pen advert youtube singularity. Warehouse shanty town refrigerator saturation point military-grade numinous lights sunglasses San Francisco stimulate. Bicycle car systema sub-orbital wristwatch alcohol shoes. Dissident kanji math-physical concrete neon long-chain hydrocarbons table. Motion singularity industrial grade human RAF shanty town semiotics hacker. Faded numinous disposable military-grade RAF dissident decay. Chrome wristwatch corrupted Tokyo drugs papier-mache boy augmented reality nodal point neon. Dolphin katana market rifle drone A.I. corrupted. Modem euro-pop disposable sunglasses fluidity rain tiger-team chrome BASE jump saturation point post-car rebar courier dolphin. </p>
+    </footer>
     <script src="bundle.js"></script>
   </body>
 </html>
